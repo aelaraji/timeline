@@ -5,13 +5,12 @@
 
 // Set path to your mentions twtxt file:
 //$logfile = './mentions.txt'; /* Make sure file is writeable */
-$config = parse_ini_file('private/config.ini');
 $logfile = $config['webmentions_txt_path'];
 
 
 if (!isset($_POST['source']) || !isset($_POST['target'])) {
-	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
 	print('Please send a propper webmention to this endpoint');
+	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
 	exit;
 }
 
